@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -32,9 +33,9 @@ const faqs = [
   }
 ];
 
-const FAQSection = () => {
+const FAQSection = forwardRef<HTMLElement, object>((_, ref) => {
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
@@ -85,6 +86,8 @@ const FAQSection = () => {
       }} />
     </section>
   );
-};
+});
+
+FAQSection.displayName = "FAQSection";
 
 export default FAQSection;
