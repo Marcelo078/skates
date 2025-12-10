@@ -1,11 +1,12 @@
+import { forwardRef } from "react";
 import { Link } from "react-router-dom";
-import { Zap, Mail, MapPin, Phone } from "lucide-react";
+import { Zap, Mail, MapPin } from "lucide-react";
 
-const Footer = () => {
+const Footer = forwardRef<HTMLElement, object>((_, ref) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer ref={ref} className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -105,6 +106,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;
